@@ -25,7 +25,7 @@ public class LibrarianService {
                 .build();
         return bookRepository.save(newbook);
     }
-    public Book deleteBook(Long bookId){
+    public void deleteBook(Long bookId){
         Book foundedBook = bookRepository.findById(bookId).orElseThrow();
         bookRepository.delete(foundedBook);
     }
@@ -35,9 +35,10 @@ public class LibrarianService {
                 .userType(request.getUserType())
                 .address(request.getAddress())
                 .build();
+        return userRepository.save(newUser);
     }
-    public User deleteUser(Long userId){
+    public void deleteUser(Long userId){
         User foundedUser = userRepository.findById(userId).orElseThrow();
-
+        userRepository.delete(foundedUser);
     }
 }
