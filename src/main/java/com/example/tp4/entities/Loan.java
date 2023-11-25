@@ -23,7 +23,9 @@ public class Loan {
     private Book book;
     @ManyToOne
     private User user;
+    private Boolean isActive;
     private LocalDate borrowDate;
     private LocalDate returnDate;
+    private int extensionCount;
 
 }

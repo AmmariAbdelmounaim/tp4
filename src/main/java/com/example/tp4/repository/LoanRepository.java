@@ -8,4 +8,7 @@ import java.util.Optional;
 @Repository
 public interface LoanRepository extends JpaRepository<Loan,Integer> {
     Optional<Loan> findById(Long id);
+    long countByUser_IdAndIsActive(Long userId, Boolean isActive);
+    boolean existsByBook_IdAndIsActive(Long bookId, Boolean isActive);
+
 }

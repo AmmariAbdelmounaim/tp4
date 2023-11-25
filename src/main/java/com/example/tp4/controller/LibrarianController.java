@@ -1,8 +1,10 @@
 package com.example.tp4.controller;
 
 import com.example.tp4.dtos.BookDto;
+import com.example.tp4.dtos.LoanDto;
 import com.example.tp4.dtos.UserDto;
 import com.example.tp4.entities.Book;
+import com.example.tp4.entities.Loan;
 import com.example.tp4.entities.User;
 import com.example.tp4.service.LibrarianService;
 import com.example.tp4.utils.UserType;
@@ -41,6 +43,20 @@ public class LibrarianController {
     @DeleteMapping("/deleteUser")
     public void deleteUser(@RequestParam Long userId){
         service.deleteUser(userId);
+    }
+
+    @PostMapping("/loanBook")
+    public ResponseEntity<Loan> loanBook(@RequestBody LoanDto loanDto){
+        return ResponseEntity.ok(service.loanBook(loanDto));
+    }
+    @PostMapping("/returnBook")
+    public void returnBook(@RequestParam Long loanId) {
+        service.returnBook(loanId);
+    }
+    @PostMapping("/extendLoan")
+    public ResponseEntity<Loan> extendLoan(@RequestParam Long loanId) {
+        Loan loan = service.extendLoan(loanId);
+        return ResponseEntity.ok(loan);
     }
 
 }

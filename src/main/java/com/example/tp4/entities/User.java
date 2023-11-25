@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 @Data
@@ -24,5 +25,7 @@ public class User {
     private UserType userType;
     @OneToMany(mappedBy = "borrower")
     private Set<Book> borrowedBooks;
+    private LocalDate borrowingRestrictionEndDate;
+
 
 }
