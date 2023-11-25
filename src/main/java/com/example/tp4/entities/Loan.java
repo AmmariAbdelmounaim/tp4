@@ -19,13 +19,10 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @OneToOne
     private Book book;
-
     @ManyToOne
     private User user;
-
     private LocalDate borrowDate;
     private LocalDate returnDate;
 
